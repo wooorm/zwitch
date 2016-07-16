@@ -1,6 +1,6 @@
 {
   "name": "zwitch",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Handle values based on a property",
   "license": "MIT",
   "keywords": [
