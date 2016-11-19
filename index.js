@@ -1,14 +1,4 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module zwitch
- * @fileoverview Handle values based on a property.
- */
-
 'use strict';
-
-/* eslint-env commonjs */
 
 /* Dependencies. */
 var has = require('has');
@@ -20,13 +10,7 @@ module.exports = factory;
 /* Methods. */
 var noop = Function.prototype;
 
-/**
- * Handle values based on a property.
- *
- * @param {string} key - Property to switch on.
- * @param {Object?} [options] - Configuration.
- * @return {Function} - Handle one value.
- */
+/* Handle values based on a property. */
 function factory(key, options) {
   var settings = options || {};
 

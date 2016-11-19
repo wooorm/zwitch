@@ -1,20 +1,8 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module zwitch
- * @fileoverview Test suite for `zwitch`.
- */
-
 'use strict';
 
-/* eslint-env node */
-
-/* Dependencies. */
 var test = require('tape');
 var zwitch = require('./');
 
-/* Tests. */
 test('zwitch(options)', function (t) {
   var handle = zwitch('type');
 
