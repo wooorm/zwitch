@@ -1,12 +1,10 @@
 # zwitch [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-<!--lint disable heading-increment list-item-spacing-->
-
 Handle values based on a property.
 
 ## Installation
 
-[npm][npm-install]:
+[npm][npm]:
 
 ```bash
 npm install zwitch
@@ -113,7 +111,7 @@ Handle one value.
 
 [codecov]: https://codecov.io/github/wooorm/zwitch
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
