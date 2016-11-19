@@ -24,7 +24,7 @@ test('zwitch(options)', function (t) {
     function () {
       handle({});
     },
-    /Invalid: `\[object Object\]`/,
+    /Invalid: `\[object Object]`/,
     'should invoke `invalid` when without key'
   );
 
