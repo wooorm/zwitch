@@ -25,16 +25,13 @@
     "browserify": "^13.0.1",
     "esmangle": "^1.0.1",
     "nyc": "^9.0.1",
-    "remark-cli": "^1.0.0",
-    "remark-comment-config": "^4.0.0",
-    "remark-github": "^5.0.0",
-    "remark-lint": "^4.0.0",
-    "remark-validate-links": "^4.0.0",
+    "remark-cli": "^2.0.0",
+    "remark-preset-wooorm": "^1.0.0",
     "tape": "^4.0.0",
     "xo": "^0.17.1"
   },
   "scripts": {
-    "build-md": "remark . --quiet --frail",
+    "build-md": "remark . --quiet --frail --output",
     "build-bundle": "browserify index.js --bare -s zwitch > zwitch.js",
     "build-mangle": "esmangle < zwitch.js > zwitch.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
@@ -57,15 +54,6 @@
     "branches": 100
   },
   "remarkConfig": {
-    "output": true,
-    "plugins": [
-      "comment-config",
-      "github",
-      "lint",
-      "validate-links"
-    ],
-    "settings": {
-      "bullet": "*"
-    }
+    "presets": "wooorm"
   }
 }
