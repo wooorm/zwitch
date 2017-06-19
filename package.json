@@ -18,7 +18,6 @@
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
   "dependencies": {
-    "has": "^1.0.1",
     "x-is-object": "^0.1.0"
   },
   "devDependencies": {
