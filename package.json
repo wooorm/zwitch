@@ -8,14 +8,14 @@
     "switch",
     "property"
   ],
-  "files": [
-    "index.js"
-  ],
-  "repository": "https://github.com/wooorm/zwitch",
+  "repository": "wooorm/zwitch",
   "bugs": "https://github.com/wooorm/zwitch/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
+  "files": [
+    "index.js"
   ],
   "dependencies": {
     "x-is-object": "^0.1.0"
@@ -23,11 +23,11 @@
   "devDependencies": {
     "browserify": "^14.1.0",
     "esmangle": "^1.0.1",
-    "nyc": "^10.0.0",
+    "nyc": "^11.0.0",
     "remark-cli": "^3.0.0",
-    "remark-preset-wooorm": "^2.0.0",
+    "remark-preset-wooorm": "^3.0.0",
     "tape": "^4.0.0",
-    "xo": "^0.17.1"
+    "xo": "^0.18.0"
   },
   "scripts": {
     "build-md": "remark . -qfo",
@@ -41,9 +41,9 @@
   },
   "xo": {
     "space": true,
+    "esnext": false,
     "ignores": [
-      "zwitch.js",
-      "zwitch.min.js"
+      "zwitch.js"
     ]
   },
   "nyc": {
@@ -53,6 +53,8 @@
     "branches": 100
   },
   "remarkConfig": {
-    "plugins": ["preset-wooorm"]
+    "plugins": [
+      "preset-wooorm"
+    ]
   }
 }
