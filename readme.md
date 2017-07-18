@@ -4,7 +4,7 @@ Handle values based on a property.
 
 ## Installation
 
-[npm][npm]:
+[npm][]:
 
 ```bash
 npm install zwitch
@@ -59,11 +59,11 @@ Create a functional switch, based on a `key` (`string`).
 Options can be omitted and added later to `one`.
 
 *   `handlers` (`Object.<Function>`, optional)
-    — Object mapping values to handle, stored on `one.handlers`;
+    — Object mapping values to handle, stored on `one.handlers`
 *   `invalid` (`Function`, optional)
-    — Handle values without `key`, stored on `one.invalid`;
+    — Handle values without `key`, stored on `one.invalid`
 *   `unknown` (`Function`, optional)
-    — Handle values with an unhandled `key`, stored on `one.unknown`;
+    — Handle values with an unhandled `key`, stored on `one.unknown`
 
 ###### Returns
 
@@ -77,11 +77,11 @@ property, the special “invalid” handler will be invoked.  If `value`
 has an unknown `key`, the special “unknown” handler will be invoked.
 
 All arguments, and the context object, are passed through to the
-[handler][handler], and it’s result is returned.
+[handler][], and it’s result is returned.
 
 #### `one.handlers`
 
-Map of [handler][handler]s (`Object.<string, Function>`).
+Map of [handler][]s (`Object.<string, Function>`).
 
 #### `one.invalid`
 
@@ -96,6 +96,11 @@ handler.  If not set, `undefined` is returned for unknown values.
 ### `function handler(value[, rest...])`
 
 Handle one value.
+
+## Related
+
+*   [`mapz`](https://github.com/wooorm/mapz)
+    — Functional map
 
 ## License
 
