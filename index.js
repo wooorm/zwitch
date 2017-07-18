@@ -1,12 +1,7 @@
 'use strict';
 
-/* Dependencies. */
-var object = require('x-is-object');
-
-/* Expose. */
 module.exports = factory;
 
-/* Methods. */
 var noop = Function.prototype;
 var own = {}.hasOwnProperty;
 
@@ -18,7 +13,7 @@ function factory(key, options) {
     var fn = one.invalid;
     var handlers = one.handlers;
 
-    if (object(value) && own.call(value, key)) {
+    if (value && own.call(value, key)) {
       fn = own.call(handlers, value[key]) ? handlers[value[key]] : one.unknown;
     }
 

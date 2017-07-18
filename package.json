@@ -17,9 +17,7 @@
   "files": [
     "index.js"
   ],
-  "dependencies": {
-    "x-is-object": "^0.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "browserify": "^14.1.0",
     "esmangle": "^1.0.1",
