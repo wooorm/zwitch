@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-- '4.0'
-- '8.0'
+- lts/boron
+- node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: tPjxqNAIwsJBtByyYP2z9NnQabDIzQZk1Vbgp+NxAUa8x5xTsBs4U4sSg9kbiFhs4nDUBpormyDB0ZylOgV+bmgYx1zuYhafKByt7MTSwAW+cFrol2sYHLu9tRj32cJqJevquRHBxOSxFZV4rU/CnfIYvHMJwjxqF/tQG6MqCK49X40wb2ObWTKrlhI9sN3dMm4TtRaFqyacwzszm26zR7EhaIwKMs2X8imqvrfYVEFR2OY1hrS5ufcnDvQK3qt4GiVJVHutudtunxq7kg+/Qc7OZrqpt32z0ANAOtnhY1Q65vOjzexq1DJvhFrsDmNfK6eo2+pEdHGoKe2PgHqSHYC7tYksKOTGLCZKhM/ZHqSWzqU3lyM55tPVKSZV5q/8qXB5ukoozW0WlJmMLulsPIu/SmX+LpS8zDOH/OSrIlgMDedkpKMKwfsqhhDqx5x9p4+qceJ/5h/KCE5NvMyjtJCV8eVBe7cIYMldcN0xvSLnbuqmjGr764F/+w6VxqgbmyiBPEx8cwhOxsGG2OsdhbgwM5JwozTwR2MsbVdSSBn0Z+SaETtv49+3y5DqRVsrpFvclq0GQx1DpQaPXP/J4i/hDJOnK5iR3LH6UdMyU4htm7oliG2+2FqSMJERSqZuTuBx7qgDYcwudkkgB1MAbNUefPaO11a/haa2eatJ/4E=
   file:
@@ -12,4 +13,3 @@ deploy:
     - "zwitch.min.js"
   on:
     tags: true
-    node: '8.0'
