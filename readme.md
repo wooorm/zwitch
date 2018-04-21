@@ -13,39 +13,40 @@ npm install zwitch
 ## Usage
 
 ```javascript
-var zwitch = require('zwitch');
-var handle = zwitch('type');
+var zwitch = require('zwitch')
 
-handle.invalid = invalid;
-handle.unknown = unknown;
-handle.handlers.alpha = handle;
+var handle = zwitch('type')
 
-handle({type: 'alpha'});
+handle.invalid = invalid
+handle.unknown = unknown
+handle.handlers.alpha = handle
+
+handle({type: 'alpha'})
 ```
 
 Or, with a `switch` statement:
 
 ```javascript
 function handle(value) {
-  var fn;
+  var fn
 
-  if (!value || typeof value !== 'object' || !(type in value)) {
-    fn = invalid;
+  if (!value || typeof value !== 'object' || !('type' in value)) {
+    fn = invalid
   } else {
     switch (value.type) {
       case 'alpha':
-        fn = handle;
-        break;
+        fn = handle
+        break
       default:
-        fn = unknown;
-        break;
+        fn = unknown
+        break
     }
   }
 
-  return fn.apply(this, arguments);
+  return fn.apply(this, arguments)
 }
 
-handle({type: 'alpha'});
+handle({type: 'alpha'})
 ```
 
 ## API
