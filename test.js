@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var zwitch = require('./');
+var zwitch = require('.');
 
 test('zwitch(options)', function (t) {
   var handle = zwitch('type');
