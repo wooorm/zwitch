@@ -5,7 +5,7 @@ module.exports = factory
 var noop = Function.prototype
 var own = {}.hasOwnProperty
 
-/* Handle values based on a property. */
+// Handle values based on a property.
 function factory(key, options) {
   var settings = options || {}
 
