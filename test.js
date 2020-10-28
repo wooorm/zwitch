@@ -3,7 +3,7 @@
 var test = require('tape')
 var zwitch = require('.')
 
-test('zwitch(options)', function(t) {
+test('zwitch(options)', function (t) {
   var handle = zwitch('type')
 
   t.equal(handle(null), undefined, 'should not fail when not given an object')
@@ -17,7 +17,7 @@ test('zwitch(options)', function(t) {
   handle.invalid = invalid
 
   t.throws(
-    function() {
+    function () {
       handle(null)
     },
     /Invalid: `null`/,
@@ -25,7 +25,7 @@ test('zwitch(options)', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       handle({})
     },
     /Invalid: `\[object Object]`/,
@@ -35,7 +35,7 @@ test('zwitch(options)', function(t) {
   handle.unknown = unknown
 
   t.throws(
-    function() {
+    function () {
       handle({type: 'alpha'})
     },
     /Unknown: `alpha`/,
