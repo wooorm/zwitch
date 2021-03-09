@@ -116,9 +116,9 @@ Handle one value.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/zwitch.svg
+[build-badge]: https://github.com/wooorm/zwitch/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/wooorm/zwitch
+[build]: https://github.com/wooorm/zwitch/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/zwitch.svg
 
