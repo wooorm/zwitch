@@ -19,7 +19,7 @@ test('zwitch(options)', function (t) {
       handle(null)
     },
     /Invalid: `null`/,
-    'should invoke `invalid` when not given an object'
+    'should call `invalid` when not given an object'
   )
 
   t.throws(
@@ -27,7 +27,7 @@ test('zwitch(options)', function (t) {
       handle({})
     },
     /Invalid: `\[object Object]`/,
-    'should invoke `invalid` when without key'
+    'should call `invalid` when without key'
   )
 
   handle.unknown = unknown
@@ -37,12 +37,12 @@ test('zwitch(options)', function (t) {
       handle({type: 'alpha'})
     },
     /Unknown: `alpha`/,
-    'should invoke `unknown` when unknown'
+    'should call `unknown` when unknown'
   )
 
   handle.handlers.alpha = alpha
 
-  t.equal(handle({type: 'alpha', value: 'a'}), 'a', 'should invoke a handler')
+  t.equal(handle({type: 'alpha', value: 'a'}), 'a', 'should call a handler')
 
   t.end()
 })

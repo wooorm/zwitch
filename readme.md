@@ -81,11 +81,11 @@ Options can be omitted and added later to `one`.
 
 #### `one(value[, rest…])`
 
-Handle one value.  Based on the bound `key`, a respective handler will be
-invoked.
+Handle one value.
+Based on the bound `key`, a respective handler will be called.
 If `value` is not an object, or doesn’t have a `key` property, the special
-“invalid” handler will be invoked.
-If `value` has an unknown `key`, the special “unknown” handler will be invoked.
+“invalid” handler will be called.
+If `value` has an unknown `key`, the special “unknown” handler will be called.
 
 All arguments, and the context object, are passed through to the [handler][],
 and it’s result is returned.
@@ -96,12 +96,12 @@ Map of [handler][]s (`Object.<string, Function>`).
 
 #### `one.invalid`
 
-Special [`handler`][handler] invoked if a value doesn’t have a `key` property.
+Special [`handler`][handler] called if a value doesn’t have a `key` property.
 If not set, `undefined` is returned for invalid values.
 
 #### `one.unknown`
 
-Special [`handler`][handler] invoked if a value does not have a matching
+Special [`handler`][handler] called if a value does not have a matching
 handler.
 If not set, `undefined` is returned for unknown values.
 

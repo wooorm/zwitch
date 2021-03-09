@@ -1,9 +1,38 @@
 var own = {}.hasOwnProperty
 
-// Handle values based on a property.
+/**
+ * @typedef {(...any) => any} Handler
+ * @typedef {Record.<string, Handler>} Handlers
+ *
+ * @typedef {Object} Options
+ * @property {Handler} [unknown]
+ * @property {Handler} [invalid]
+ * @property {Handlers} [handlers]
+ */
+
+/**
+ * Handle values based on a property.
+ *
+ * @param {string} key
+ * @param {Options} [options]
+ */
 export function zwitch(key, options) {
   var settings = options || {}
 
+  /**
+   * Handle one value.
+   * Based on the bound `key`, a respective handler will be called.
+   * If `value` is not an object, or doesn’t have a `key` property, the special
+   * “invalid” handler will be called.
+   * If `value` has an unknown `key`, the special “unknown” handler will be
+   * called.
+   *
+   * All arguments, and the context object, are passed through to the handler,
+   * and it’s result is returned.
+   *
+   * @param {any} [value]
+   * @returns {any}
+   */
   function one(value) {
     var fn = one.invalid
     var handlers = one.handlers
