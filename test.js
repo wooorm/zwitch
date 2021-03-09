@@ -1,7 +1,5 @@
-'use strict'
-
-var test = require('tape')
-var zwitch = require('.')
+import test from 'tape'
+import {zwitch} from './index.js'
 
 test('zwitch(options)', function (t) {
   var handle = zwitch('type')

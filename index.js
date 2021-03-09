@@ -1,12 +1,7 @@
-'use strict'
-
-module.exports = factory
-
-var noop = Function.prototype
 var own = {}.hasOwnProperty
 
 // Handle values based on a property.
-function factory(key, options) {
+export function zwitch(key, options) {
   var settings = options || {}
 
   function one(value) {
@@ -17,7 +12,9 @@ function factory(key, options) {
       fn = own.call(handlers, value[key]) ? handlers[value[key]] : one.unknown
     }
 
-    return (fn || noop).apply(this, arguments)
+    if (fn) {
+      return fn.apply(this, arguments)
+    }
   }
 
   one.handlers = settings.handlers || {}

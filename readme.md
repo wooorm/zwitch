@@ -9,6 +9,9 @@ Handle values based on a property.
 
 ## Install
 
+This package is ESM only: Node 12+ is needed to use it and it must be `import`ed
+instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -18,27 +21,25 @@ npm install zwitch
 ## Use
 
 ```js
-var zwitch = require('zwitch')
+import {zwitch} from 'zwitch'
 
-var handle = zwitch('type')
-
-handle.invalid = invalid
-handle.unknown = unknown
-handle.handlers.alpha = handle
+var handle = zwitch('type', {invalid, unknown, handlers: {alpha: handle}})
 
 handle({type: 'alpha'})
 ```
 
 Or, with a `switch` statement:
 
-```javascript
+```js
+var field = 'type'
+
 function handle(value) {
   var fn
 
-  if (!value || typeof value !== 'object' || !('type' in value)) {
+  if (!value || typeof value !== 'object' || !(field in value)) {
     fn = invalid
   } else {
-    switch (value.type) {
+    switch (value[field]) {
       case 'alpha':
         fn = handle
         break
@@ -55,6 +56,9 @@ handle({type: 'alpha'})
 ```
 
 ## API
+
+This package exports the following identifiers: `zwitch`.
+There is no default export.
 
 ### `zwitch(key[, options])`
 
@@ -75,7 +79,7 @@ Options can be omitted and added later to `one`.
 
 `Function` — See [`one`][one].
 
-#### `one(value[, rest...])`
+#### `one(value[, rest…])`
 
 Handle one value.  Based on the bound `key`, a respective handler will be
 invoked.
@@ -101,7 +105,7 @@ Special [`handler`][handler] invoked if a value does not have a matching
 handler.
 If not set, `undefined` is returned for unknown values.
 
-### `function handler(value[, rest...])`
+### `function handler(value[, rest…])`
 
 Handle one value.
 
