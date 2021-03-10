@@ -23,9 +23,11 @@ npm install zwitch
 ```js
 import {zwitch} from 'zwitch'
 
-var handle = zwitch('type', {invalid, unknown, handlers: {alpha: handle}})
+var handle = zwitch('type', {invalid, unknown, handlers: {alpha: handleAlpha}})
 
 handle({type: 'alpha'})
+
+function handleAlpha() { /* … */ }
 ```
 
 Or, with a `switch` statement:
@@ -41,7 +43,7 @@ function handle(value) {
   } else {
     switch (value[field]) {
       case 'alpha':
-        fn = handle
+        fn = handleAlpha
         break
       default:
         fn = unknown
@@ -53,6 +55,8 @@ function handle(value) {
 }
 
 handle({type: 'alpha'})
+
+function handleAlpha() { /* … */ }
 ```
 
 ## API
