@@ -47,14 +47,23 @@ test('zwitch(options)', function (t) {
   t.end()
 })
 
+/**
+ * @param {unknown} value
+ */
 function invalid(value) {
   throw new Error('Invalid: `' + value + '`')
 }
 
+/**
+ * @param {{ [key: string]: unknown, type: string }} value
+ */
 function unknown(value) {
   throw new Error('Unknown: `' + value.type + '`')
 }
 
+/**
+ * @param {{ type: string, value: string }} value
+ */
 function alpha(value) {
   return value.value
 }

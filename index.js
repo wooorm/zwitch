@@ -4,7 +4,7 @@ var own = {}.hasOwnProperty
  * @callback Handler
  * @param {...unknown} value
  * @return {unknown}
- * 
+ *
  * @typedef {Record<string, Handler>} Handlers
  *
  * @typedef {Object} Options
