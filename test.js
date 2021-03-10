@@ -55,14 +55,14 @@ function invalid(value) {
 }
 
 /**
- * @param {{ [key: string]: unknown, type: string }} value
+ * @param {{[key: string]: unknown, type: string}} value
  */
 function unknown(value) {
   throw new Error('Unknown: `' + value.type + '`')
 }
 
 /**
- * @param {{ type: string, value: string }} value
+ * @param {{type: string, value: string}} value
  */
 function alpha(value) {
   return value.value
