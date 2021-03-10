@@ -1,8 +1,11 @@
 var own = {}.hasOwnProperty
 
 /**
- * @typedef {(...any) => any} Handler
- * @typedef {Record.<string, Handler>} Handlers
+ * @callback Handler
+ * @param {...unknown} value
+ * @return {unknown}
+ *
+ * @typedef {Record<string, Handler>} Handlers
  *
  * @typedef {Object} Options
  * @property {Handler} [unknown]
@@ -30,8 +33,8 @@ export function zwitch(key, options) {
    * All arguments, and the context object, are passed through to the handler,
    * and it’s result is returned.
    *
-   * @param {any} [value]
-   * @returns {any}
+   * @param {...unknown} [value]
+   * @returns {unknown}
    */
   function one(value) {
     var fn = one.invalid
