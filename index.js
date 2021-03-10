@@ -35,6 +35,9 @@ export function zwitch(key, options) {
    *
    * @param {...unknown} [value]
    * @returns {unknown}
+   * @property {Handler} invalid
+   * @property {Handler} unknown
+   * @property {Handlers} handlers
    */
   function one(value) {
     var fn = one.invalid
