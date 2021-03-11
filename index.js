@@ -34,6 +34,7 @@ export function zwitch(key, options) {
    * and it’s result is returned.
    *
    * @param {...unknown} [value]
+   * @this {unknown}
    * @returns {unknown}
    * @property {Handler} invalid
    * @property {Handler} unknown
