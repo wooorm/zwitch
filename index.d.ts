@@ -24,7 +24,12 @@ export declare function zwitch<
   unknown: UnknownHandler
   invalid: InvalidHandler
   handlers: Record<string, KnownHandler>
-  (value: unknown):
+  (
+    ...props:
+      | Parameters<UnknownHandler>
+      | Parameters<InvalidHandler>
+      | Parameters<KnownHandler>
+  ):
     | ReturnType<UnknownHandler>
     | ReturnType<InvalidHandler>
     | ReturnType<KnownHandler>
