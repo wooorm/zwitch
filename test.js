@@ -53,7 +53,7 @@ test('zwitch(options)', function (t) {
 
 /**
  * @param {unknown} value
- * @return {void}
+ * @returns {never}
  */
 function invalid(value) {
   throw new Error('Invalid: `' + value + '`')
@@ -61,7 +61,7 @@ function invalid(value) {
 
 /**
  * @param {{[key: string]: unknown, type: string}} value
- * @return {void}
+ * @returns {never}
  */
 function unknown(value) {
   throw new Error('Unknown: `' + value.type + '`')
