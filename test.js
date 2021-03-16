@@ -2,21 +2,25 @@ import test from 'tape'
 import {zwitch} from './index.js'
 
 test('zwitch(options)', function (t) {
-  var handle = zwitch('type')
+  var handleNone = zwitch('type')
 
-  t.equal(handle(null), undefined, 'should not fail when not given an object')
-  t.equal(handle({}), undefined, 'should not fail without `key`')
   t.equal(
-    handle({type: 'unknown'}),
+    handleNone(null),
+    undefined,
+    'should not fail when not given an object'
+  )
+  t.equal(handleNone({}), undefined, 'should not fail without `key`')
+  t.equal(
+    handleNone({type: 'unknown'}),
     undefined,
     'should not fail with unknown `key`'
   )
 
-  handle.invalid = invalid
+  var handleInvalid = zwitch('type', {invalid})
 
   t.throws(
     function () {
-      handle(null)
+      handleInvalid(null)
     },
     /Invalid: `null`/,
     'should call `invalid` when not given an object'
@@ -24,31 +28,32 @@ test('zwitch(options)', function (t) {
 
   t.throws(
     function () {
-      handle({})
+      handleInvalid({})
     },
     /Invalid: `\[object Object]`/,
     'should call `invalid` when without key'
   )
 
-  handle.unknown = unknown
+  var handleInvalidAndUndefined = zwitch('type', {invalid, unknown})
 
   t.throws(
     function () {
-      handle({type: 'alpha'})
+      handleInvalidAndUndefined({type: 'alpha'})
     },
     /Unknown: `alpha`/,
     'should call `unknown` when unknown'
   )
 
-  handle.handlers.alpha = alpha
+  var handleAll = zwitch('type', {unknown, invalid, handlers: {alpha, beta}})
 
-  t.equal(handle({type: 'alpha', value: 'a'}), 'a', 'should call a handler')
+  t.equal(handleAll({type: 'alpha', value: 'a'}), 'a', 'should call a handler')
 
   t.end()
 })
 
 /**
  * @param {unknown} value
+ * @return {void}
  */
 function invalid(value) {
   throw new Error('Invalid: `' + value + '`')
@@ -56,6 +61,7 @@ function invalid(value) {
 
 /**
  * @param {{[key: string]: unknown, type: string}} value
+ * @return {void}
  */
 function unknown(value) {
   throw new Error('Unknown: `' + value.type + '`')
@@ -63,7 +69,16 @@ function unknown(value) {
 
 /**
  * @param {{type: string, value: string}} value
+ * @return {string}
  */
 function alpha(value) {
+  return value.value
+}
+
+/**
+ * @param {{type: string, value: number}} value
+ * @return {number}
+ */
+function beta(value) {
   return value.value
 }
