@@ -10,9 +10,9 @@ export type Handler = (...props: unknown[]) => unknown
  * @returns handler
  */
 export declare function zwitch<
-  KnownHandler extends Handler = (value: unknown) => void,
-  UnknownHandler extends Handler = (value: unknown) => void,
-  InvalidHandler extends Handler = (value: unknown) => void
+  KnownHandler extends Handler = (...params: unknown[]) => void,
+  UnknownHandler extends Handler = (...params: unknown[]) => void,
+  InvalidHandler extends Handler = (...params: unknown[]) => void
 >(
   key: string,
   options?: {
@@ -25,7 +25,7 @@ export declare function zwitch<
   invalid: InvalidHandler
   handlers: Record<string, KnownHandler>
   (
-    ...props:
+    ...params:
       | Parameters<UnknownHandler>
       | Parameters<InvalidHandler>
       | Parameters<KnownHandler>
