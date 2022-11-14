@@ -60,16 +60,16 @@ function invalid(value) {
 }
 
 /**
- * @param {{[key: string]: unknown, type: string}} value
+ * @param {unknown} value
  * @returns {never}
  */
 function unknown(value) {
+  // @ts-expect-error: JS guarantees there’s a `type`, TS can’t do that.
   throw new Error('Unknown: `' + value.type + '`')
 }
 
 /**
  * @param {{type: string, value: string}} value
- * @return {string}
  */
 function alpha(value) {
   return value.value

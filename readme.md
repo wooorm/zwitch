@@ -72,7 +72,7 @@ Create a functional switch, based on a `key` (`string`).
 
 Options can be omitted and added later to `one`.
 
-*   `handlers` (`Object.<Function>`, optional)
+*   `handlers` (`Record<string, Function>`, optional)
     — Object mapping values to handle, stored on `one.handlers`
 *   `invalid` (`Function`, optional)
     — Handle values without `key`, stored on `one.invalid`
@@ -96,7 +96,7 @@ and it’s result is returned.
 
 #### `one.handlers`
 
-Map of [handler][]s (`Object.<string, Function>`).
+Map of [handler][]s (`Record<string, Function>`).
 
 #### `one.invalid`
 
