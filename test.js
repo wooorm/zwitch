@@ -2,7 +2,7 @@ import test from 'tape'
 import {zwitch} from './index.js'
 
 test('zwitch(options)', function (t) {
-  var handleNone = zwitch('type')
+  const handleNone = zwitch('type')
 
   t.equal(
     handleNone(null),
@@ -16,7 +16,7 @@ test('zwitch(options)', function (t) {
     'should not fail with unknown `key`'
   )
 
-  var handleInvalid = zwitch('type', {invalid})
+  const handleInvalid = zwitch('type', {invalid})
 
   t.throws(
     function () {
@@ -34,7 +34,7 @@ test('zwitch(options)', function (t) {
     'should call `invalid` when without key'
   )
 
-  var handleInvalidAndUndefined = zwitch('type', {invalid, unknown})
+  const handleInvalidAndUndefined = zwitch('type', {invalid, unknown})
 
   t.throws(
     function () {
@@ -44,7 +44,7 @@ test('zwitch(options)', function (t) {
     'should call `unknown` when unknown'
   )
 
-  var handleAll = zwitch('type', {unknown, invalid, handlers: {alpha, beta}})
+  const handleAll = zwitch('type', {unknown, invalid, handlers: {alpha, beta}})
 
   t.equal(handleAll({type: 'alpha', value: 'a'}), 'a', 'should call a handler')
 

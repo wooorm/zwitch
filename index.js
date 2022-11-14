@@ -1,4 +1,4 @@
-var own = {}.hasOwnProperty
+const own = {}.hasOwnProperty
 
 /**
  * @callback Handler
@@ -20,7 +20,7 @@ var own = {}.hasOwnProperty
  * @param {Options} [options]
  */
 export function zwitch(key, options) {
-  var settings = options || {}
+  const settings = options || {}
 
   /**
    * Handle one value.
@@ -41,15 +41,15 @@ export function zwitch(key, options) {
    * @property {Handlers} handlers
    */
   function one(value) {
-    var fn = one.invalid
-    var handlers = one.handlers
+    let fn = one.invalid
+    const handlers = one.handlers
 
     if (value && own.call(value, key)) {
       fn = own.call(handlers, value[key]) ? handlers[value[key]] : one.unknown
     }
 
     if (fn) {
-      return fn.apply(this, arguments)
+      return Reflect.apply(fn, this, arguments)
     }
   }
 
