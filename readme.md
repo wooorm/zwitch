@@ -162,7 +162,8 @@ Handle one value.
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports no additional types.
+It exports the types `Handler`, `UnknownHandler`, `InvalidHandler`, and
+`Options`.
 
 ## Compatibility
 
