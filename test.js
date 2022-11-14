@@ -1,16 +1,17 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {zwitch} from './index.js'
 
-test('zwitch(options)', function (t) {
+test('zwitch(options)', function () {
   const handleNone = zwitch('type')
 
-  t.equal(
+  assert.equal(
     handleNone(null),
     undefined,
     'should not fail when not given an object'
   )
-  t.equal(handleNone({}), undefined, 'should not fail without `key`')
-  t.equal(
+  assert.equal(handleNone({}), undefined, 'should not fail without `key`')
+  assert.equal(
     handleNone({type: 'unknown'}),
     undefined,
     'should not fail with unknown `key`'
@@ -18,7 +19,7 @@ test('zwitch(options)', function (t) {
 
   const handleInvalid = zwitch('type', {invalid})
 
-  t.throws(
+  assert.throws(
     function () {
       handleInvalid(null)
     },
@@ -26,7 +27,7 @@ test('zwitch(options)', function (t) {
     'should call `invalid` when not given an object'
   )
 
-  t.throws(
+  assert.throws(
     function () {
       handleInvalid({})
     },
@@ -36,7 +37,7 @@ test('zwitch(options)', function (t) {
 
   const handleInvalidAndUndefined = zwitch('type', {invalid, unknown})
 
-  t.throws(
+  assert.throws(
     function () {
       handleInvalidAndUndefined({type: 'alpha'})
     },
@@ -46,9 +47,11 @@ test('zwitch(options)', function (t) {
 
   const handleAll = zwitch('type', {unknown, invalid, handlers: {alpha, beta}})
 
-  t.equal(handleAll({type: 'alpha', value: 'a'}), 'a', 'should call a handler')
-
-  t.end()
+  assert.equal(
+    handleAll({type: 'alpha', value: 'a'}),
+    'a',
+    'should call a handler'
+  )
 })
 
 /**
