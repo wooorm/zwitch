@@ -50,7 +50,7 @@
 const own = {}.hasOwnProperty
 
 /**
- * Handle values based on a property.
+ * Handle values based on a field.
  *
  * @template {InvalidHandler} [Invalid=InvalidHandler]
  * @template {UnknownHandler} [Unknown=UnknownHandler]
