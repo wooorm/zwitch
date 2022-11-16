@@ -98,13 +98,10 @@ export function zwitch(key, options) {
     const handlers = one.handlers
 
     if (value && own.call(value, key)) {
-      // @ts-expect-error: indexable.
-      const id = value[key]
-      fn =
-        typeof id === 'string' && own.call(handlers, id)
-          ? // @ts-expect-error: assume function.
-            handlers[id]
-          : one.unknown
+      // @ts-expect-error Indexable.
+      const id = String(value[key])
+      // @ts-expect-error Indexable.
+      fn = own.call(handlers, id) ? handlers[id] : one.unknown
     }
 
     if (fn) {
